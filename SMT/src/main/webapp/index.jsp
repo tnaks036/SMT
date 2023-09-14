@@ -8,7 +8,7 @@
 </head>
 <body>
 <%@ include file = "header.jsp" %>
-	<script src="js/board.js"></script>	
 <%@ include file = "footer.jsp" %>
+<script src="js/board.js"></script>	
 </body>
 </html>

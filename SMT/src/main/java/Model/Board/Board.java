@@ -34,9 +34,11 @@ public class Board {
 	private ResultSet rs;
 	private String query;
 	
+	private String board_ID = "";
 	private String comment_ID = "";
 	private String title = "";
 	private String contents = "";
+	private String file_Name;
 	
 	private String condition = "";
 	private String searchKeyword = "";
@@ -45,6 +47,7 @@ public class Board {
 	
 	DataBase db = new DataBase();
 	Page page = new Page();
+	Image img = new Image();
 	
 //	public String goBoard(HttpServletRequest request, HttpServletResponse response) {
 	public Map<String, Object> goBoard(HttpServletRequest request, HttpServletResponse response) {
@@ -138,6 +141,7 @@ public class Board {
 		comment_ID = multi.getParameter("comment_ID");
 		title = multi.getParameter("title");
 		contents = multi.getParameter("content");
+		file_Name = multi.getFilesystemName("file_Name");
 		try {
 			con = db.getConnection();
 			
@@ -145,14 +149,7 @@ public class Board {
 			ps.setString(1, comment_ID);
 			ps.setString(2, title);
 			ps.setString(3, contents);
-			
-			File file = multi.getFile("file_Name");
-		    if (file != null && file.exists()) {
-		        byte[] fileData = Files.readAllBytes(file.toPath());
-				ps.setBytes(4, fileData);
-			}else {
-				ps.setBytes(4, null);
-			}
+			ps.setString(4, file_Name);
 			
 			ps.executeUpdate();
 			
@@ -166,6 +163,8 @@ public class Board {
 	}
 	
 	public String updateFrm(HttpServletRequest request, HttpServletResponse response) {
+		board_ID = request.getParameter("board_ID");
+		
 		// 게시판 수정폼으로 이동
 		query = "SELECT "
 				+ " Board_ID, "
@@ -174,7 +173,7 @@ public class Board {
 				+ " contents, "
 				+ " Ins_Date_Time "
 				+ " FROM CS_Ques "
-				+ " WHERE Board_ID = " + request.getParameter("board_ID");
+				+ " WHERE Board_ID = " + board_ID;
 		
 		try {
 			con = db.getConnection();
@@ -211,24 +210,23 @@ public class Board {
 				+ " SET Title = ? "
 				+ " , Contents = ? ";
 				
-		
+		board_ID = multi.getParameter("board_ID");
 		title = multi.getParameter("title");
 		contents = multi.getParameter("content");
+		file_Name = multi.getFilesystemName("file_Name");
 		try {
 			con = db.getConnection();
 			
 			
-			File file = multi.getFile("file_Name");
-		    if (file != null && file.exists()) {
-		        byte[] fileData = Files.readAllBytes(file.toPath());
+		    if (file_Name != null) {
 		        query += " , File_Name = ? "
 						+ " , Upd_Date_Time = GETDATE()"
-						+ " WHERE Board_ID = " + multi.getParameter("board_ID");
+						+ " WHERE Board_ID = " + board_ID;
 
 		        ps = con.prepareStatement(query);
 		        ps.setString(1, title);
 		        ps.setString(2, contents);
-				ps.setBytes(3, fileData);
+				ps.setString(3, file_Name);
 			
 				
 			}else {
@@ -239,7 +237,11 @@ public class Board {
 		        ps.setString(2, contents);
 			}
 			
+		    String beforeFile = img.getFileDataFromDatabase(board_ID);
+		    
 			ps.executeUpdate();
+			
+			img.delfile(beforeFile);
 			
 			db.close(ps);
 			db.close(con);
@@ -250,8 +252,8 @@ public class Board {
 		
 	}
 	
-//	public String deleteBoard(HttpServletRequest request, HttpServletResponse response) {
 	public Map<String, String> deleteBoard(HttpServletRequest request, HttpServletResponse response) {
+		board_ID = request.getParameter("board_ID");
 		
 		query = " UPDATE CS_Ques"
 				+ " SET Del_Yn = 'Y' "
@@ -264,10 +266,11 @@ public class Board {
 		try {
 			con = db.getConnection();
 			ps = con.prepareStatement(query);
-			ps.setInt(1, Integer.parseInt(request.getParameter("board_ID")));
+			ps.setInt(1, Integer.parseInt(board_ID));
 
 			if(ps.executeUpdate() > 0) {
 				list.put("result", "suc");
+				img.delfile(img.getFileDataFromDatabase(board_ID));
 			}else {
 				list.put("result", "fail");
 			}
@@ -317,36 +320,18 @@ public class Board {
 				qvo.setComment_ID(rs.getString("Comment_ID"));
 				qvo.setTitle(rs.getString("Title"));
 				qvo.setContents(rs.getString("contents").replace("\r\n", "<br>")); //엔터 바꾸기
-				qvo.setFile_Name(rs.getBytes("File_Name"));
+				qvo.setFile_Name(rs.getString("File_Name"));
 				qvo.setIns_Date_Time(rs.getString("Ins_Date_Time"));
 				
-				
-				// 이미지 데이터를 BufferedImage로 변환
-	            byte[] fileData = rs.getBytes("File_Name");
-	            String extension = "";
-	            
-	            if(fileData != null) {
-	            	extension = Image.getExtensionFromMagicNumber(fileData);
-	            }
-	            	
-	            
-	            // 첨부파일이 이미지 파일 일 때
-	            if(extension != null && (extension.equals("jpg") || extension.equals("jpeg") || extension.equals("png"))) {
-	            	
-	            	ByteArrayInputStream bais = new ByteArrayInputStream(fileData);
-	            	BufferedImage image = ImageIO.read(bais);
-	            	byte[] newImageData = convertImageToFormat(image, "png");
-	            	
-	            	// 변환된 이미지 데이터를 Base64로 인코딩
-	            	String encodedImageData = Base64.getEncoder().encodeToString(newImageData);
-	            	qvo.setFile_ViewName(encodedImageData);
-	            }
-				
-				
-			}else {
-				return "";
+				if(qvo.getFile_Name() != null) {
+					int DotIndex = qvo.getFile_Name().lastIndexOf('.');
+					if (DotIndex > 0) {
+						String extension = qvo.getFile_Name().substring(DotIndex + 1);
+						qvo.setFile_Extension(extension);
+					}
+				}
 			}
-
+			
 			request.setAttribute("list", qvo);
 			request.setAttribute("preTitle", rs.getString("preTitle"));
 			request.setAttribute("nextTitle", rs.getString("nextTitle"));
@@ -363,10 +348,4 @@ public class Board {
 		
 		return "/WEB-INF/Board/Board_Info.jsp";
 	}	
-	
-	public static byte[] convertImageToFormat(BufferedImage image, String format) throws IOException {
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ImageIO.write(image, format, baos);
-        return baos.toByteArray();
-    }
 }

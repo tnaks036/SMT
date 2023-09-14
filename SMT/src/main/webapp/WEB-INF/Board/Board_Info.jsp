@@ -53,11 +53,11 @@
 		<p>${list.comment_ID}</p>
 	<%-- <c:if test="${list.file_ViewName ne null}"> --%>
 	<c:if test="${list.file_Name ne null}">
- 		<a class="downloadLink" href="downloadImg?file_Name=${list.file_ViewName}&board_ID=${list.board_ID}">[첨부파일]</a> 
+ 		<a class="downloadLink" href="${pageContext.request.contextPath}/file/${list.file_Name}" download>[첨부파일]</a> 
 	</c:if>
 	</div>
-	<c:if test="${list.file_ViewName ne null}">
- 		<img src="data:image/png;base64,${list.file_ViewName}" alt="Image"> 
+	<c:if test="${list.file_Name ne null && (list.file_Extension eq 'jpg' || list.file_Extension eq 'png' || list.file_Extension eq 'jpeg')}">
+ 		<img src="${pageContext.request.contextPath}/file/${list.file_Name}" alt="${list.file_Name}"> 
 	</c:if>
 	<p>
 	${list.contents}
@@ -221,23 +221,26 @@ function getAnsList() {
 					var content = list[i].Contents;
 					var writer = list[i].anser_ID;
 					var ins_Date_Time = list[i].ins_Date_Time;
-					var file_ViewName = list[i].file_ViewName;
 					var file_Name = list[i].file_Name;
+					var file_Extension = list[i].file_Extension;
+					var ans_ID = list[i].ans_ID;
+					
 					comment_html += "<div>";
 					comment_html += "<form enctype='multipart/form-data'>" //폼시작
-					comment_html += "<input type='hidden' class='board_ID form-control' name='board_ID' value='${list.board_ID}'>";
+					comment_html += "<input type='hidden' class='ans_ID form-control' name='board_ID' value='" + ans_ID + "'>";
 					comment_html += "<div class='ansWriterDate'>";
 					comment_html += "<input type='text' class='answerID form-control' value='" + writer + "' style='display:block;' readonly>";
 					comment_html += "<input type='text' class='insDateTime form-control' value='" + ins_Date_Time + "' style='display:block;' readonly>";
 					comment_html += "</div>";
 					
 					if(file_Name != null){
-						comment_html += "<div style='text-align:right;'><a class='downloadLink' href='downloadImg?board_ID=${list.board_ID}&reply=1'>[첨부파일]</a></div>"; 
+						comment_html += "<div style='text-align:right;'><a class='downloadLink' href='${pageContext.request.contextPath}/file/" + file_Name + "' download>[첨부파일]</a></div>"; 
+
+						if (file_Extension === 'jpg' || file_Extension === 'png' || file_Extension === 'jpeg') {
+							comment_html += "<img src='${pageContext.request.contextPath}/file/" + file_Name + "' alt='" + file_Name + "'> <br>";
+						}
 					}
 					
-					if(file_ViewName != null){
-						comment_html += "<img id='ansImge' src='data:image/png;base64,"+ file_ViewName + "' alt='Image'><br>";
-					}
 					
 					comment_html += "<textarea class='Anscontent form-control' readonly>" + content + "</textarea>";
 					
@@ -313,19 +316,17 @@ function getAnsList() {
 						    var $container = $(this).closest("div").parent();
 						    var $textarea = $container.find(".Anscontent");
 						    
-						    var boardID = $container.find(".board_ID").val();
+						    var ans_ID = $container.find(".ans_ID").val();
 						    var content = $textarea.val();
 						    var fileInput = $container.find(".ansUpdfileLabelBox").find(".fileNm")[0];
 						    var file = fileInput.files[0];
 						    var answerID = $container.find(".answerID").val();
 							  
 						    var formData = new FormData();
-						    formData.append("board_ID", board_ID);
-						    formData.append("answerID", answerID);
+						    formData.append("ans_ID", ans_ID);
 						    formData.append("content", content);
-						    console.log(file);
 						    if (file != null) {
-						      formData.append("fileNm", file);
+						      formData.append("file_Name", file);
 						    }
 						    
 						    $.ajax({
@@ -347,16 +348,14 @@ function getAnsList() {
 					
 					$(".delBtn").click(function() {//삭제
 						if(confirm("댓글을 삭제하시겠습니까?\n 삭제 후 되돌릴 수 없습니다.")){
-						    var $container = $(this).closest("div");
+						    var $container = $(this).closest("div").parent();
 						    var $span = $container.find(".answerID");
-						    var boardID = $("#board_ID").val();
-						    var answerID = writer;
-						    
+						    var ans_ID = $container.find(".ans_ID").val();
+						    console.log(ans_ID);
 						    $.ajax({
 						        type: "POST",
 						        url: "delAns", 
-						        data: { "board_ID": boardID,
-						        		"answer_ID": answerID }, 
+						        data: { "ans_ID": ans_ID }, 
 						        success: function(response) {
 									alert("댓글이 삭제되었습니다.");
 									getAnsList();

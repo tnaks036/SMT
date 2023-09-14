@@ -30,9 +30,13 @@ public class Ans {
 	private ResultSet rs;
 	private String query;
 	
+	private String ans_ID = "";
 	private String comment_ID = "";
 	private String Answer_ID = "";
 	private String contents = "";
+	private String file_Name;
+	
+	Image img = new Image();
 	
 	DataBase db = new DataBase();
 	
@@ -44,6 +48,8 @@ public class Ans {
 		comment_ID = multi.getParameter("comment_ID");
 		Answer_ID = multi.getParameter("answerID");
 		contents = multi.getParameter("ansContents");
+		file_Name = multi.getFilesystemName("file_Name");
+
 		try {
 			con = db.getConnection();
 			
@@ -52,14 +58,7 @@ public class Ans {
 			ps.setString(2, comment_ID);
 			ps.setString(3, Answer_ID);
 			ps.setString(4, contents);
-
-			File file = multi.getFile("fileNm");
-			if (file != null && file.exists()) {
-				byte[] fileData = Files.readAllBytes(file.toPath());
-				ps.setBytes(5, fileData);
-			}else {
-				ps.setBytes(5, null);
-			}
+			ps.setString(5, file_Name);
 			
 			ps.executeUpdate();
 			
@@ -71,22 +70,22 @@ public class Ans {
 		}
 	}
 	
-//	public List<BoardAVO> listAns(HttpServletRequest request, HttpServletResponse response){
 	public List<BoardAVO> listAns(MultipartRequest multi, HttpServletResponse response){
-		query = "SELECT BOARD_ID, "
+		ans_ID = multi.getParameter("ans_ID");
+		
+		query = "SELECT ANS_ID, "
 				+ " COMMENT_ID, "
 				+ " ANSWER_ID, "
 				+ " CONTENTS, "
 				+ " FILE_NAME, "
 				+ " FORMAT(INS_DATE_TIME, 'yy-MM-dd HH:mm:ss') AS INS_DATE_TIME "
 				+ " FROM CS_ANS "
-				+ " WHERE BOARD_ID = " + multi.getParameter("board_ID")
+				+ " WHERE Board_ID = " + multi.getParameter("board_ID")
 				+ " AND (Del_Yn <> 'Y' OR Del_Yn IS NULL)  "
 				+ " ORDER BY INS_DATE_TIME "
 				;
 		
 		try {
-			
 			con = db.getConnection();
 			ps = con.prepareStatement(query);
 			rs = ps.executeQuery();
@@ -95,33 +94,22 @@ public class Ans {
 			
 			while(rs.next()) {
 				BoardAVO avo = new BoardAVO();
-				avo.setBoard_ID(rs.getInt("Board_ID"));
+				avo.setAns_ID(rs.getString("ANS_ID"));
 				avo.setComment_ID(rs.getString("Comment_ID"));
 				avo.setAnser_ID(rs.getString("Answer_ID"));
 				avo.setContents(rs.getString("Contents"));
-				avo.setFile_Name(rs.getBytes("File_Name"));
+				avo.setFile_Name(rs.getString("File_Name"));
 				avo.setIns_Date_Time(rs.getString("Ins_Date_Time"));
 				
 				// 이미지 데이터를 BufferedImage로 변환
-	            byte[] fileData = rs.getBytes("File_Name");
-	            String extension = "";
-	            if(fileData != null) {
-	            	extension = Image.getExtensionFromMagicNumber(fileData);
-	            }
-	            	
-	            
-	            // 첨부파일이 이미지 파일 일 때
-	            if(extension != null && (extension.equals("jpg") || extension.equals("jpeg") || extension.equals("png"))) {
-	            	
-	            	ByteArrayInputStream bais = new ByteArrayInputStream(fileData);
-	            	BufferedImage image = ImageIO.read(bais);
-	            	byte[] newImageData = convertImageToFormat(image, "png");
-	            	
-	            	// 변환된 이미지 데이터를 Base64로 인코딩
-	            	String encodedImageData = Base64.getEncoder().encodeToString(newImageData);
-	            	avo.setFile_ViewName(encodedImageData);
-	            }
-	            list.add(avo);
+				if(avo.getFile_Name() != null) {
+					int DotIndex = avo.getFile_Name().lastIndexOf('.');
+					if (DotIndex > 0) {
+						String extension = avo.getFile_Name().substring(DotIndex + 1);
+						avo.setFile_Extension(extension);
+					}
+				}
+				list.add(avo);
 			}
 			
 			db.close(rs);
@@ -138,16 +126,18 @@ public class Ans {
 	
 	public void delAns(HttpServletRequest request, HttpServletResponse response) {
 		query = "UPDATE CS_ANS SET DEL_DATE_TIME = GETDATE(), DEL_YN = 'Y' "
-				+ " WHERE BOARD_ID = ? "
-				+ " AND ANSWER_ID = ? ";
+				+ " WHERE ANS_ID = ? ";
+		
+		ans_ID = request.getParameter("ans_ID");
 		
 		try {
 			con = db.getConnection();
 			ps = con.prepareStatement(query);
-			ps.setString(1, request.getParameter("board_ID"));
-			ps.setString(2, request.getParameter("answer_ID"));
+			ps.setString(1, ans_ID);
 			
 			ps.executeUpdate();
+			
+			img.delfile(img.getFileDataFromDatabase(ans_ID, "1"));
 			
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -159,31 +149,27 @@ public class Ans {
 	}
 	
 	public void updAns(MultipartRequest multi, HttpServletResponse response) {
+		file_Name = multi.getFilesystemName("file_Name");
+		ans_ID = multi.getParameter("ans_ID");
+
 		try {
 			con = db.getConnection();
 			query = "UPDATE CS_ANS SET Upd_DATE_TIME = GETDATE(), "
 					+ " CONTENTS = ? ";
 
-			File file = multi.getFile("fileNm");
-			if (file != null && file.exists()) {
-				System.out.println(" 13123");
-				byte[] fileData = Files.readAllBytes(file.toPath());
+			if (file_Name != null) {
 				query += " ,FILE_NAME = ? "
-						+ " WHERE BOARD_ID = ? "
-						+ " AND ANSWER_ID = ? ";
+						+ " WHERE Ans_ID = ? ";
 				ps = con.prepareStatement(query);
 				ps.setString(1, multi.getParameter("content"));
-				ps.setBytes(2, fileData);
-				ps.setString(3, multi.getParameter("board_ID"));
-				ps.setString(4, multi.getParameter("answerID"));
+				ps.setString(2, file_Name);
+				ps.setString(3, multi.getParameter("ans_ID"));
 			
 			}else {
-				query += " WHERE BOARD_ID = ? "
-						+ " AND ANSWER_ID = ? ";
+				query += " WHERE Ans_ID = ? ";
 				ps = con.prepareStatement(query);
 				ps.setString(1, multi.getParameter("content"));
-				ps.setString(2, multi.getParameter("board_ID"));
-				ps.setString(3, multi.getParameter("answerID"));
+				ps.setString(2, multi.getParameter("ans_ID"));
 			}
 			
 			ps.executeUpdate();
@@ -197,9 +183,4 @@ public class Ans {
 		
 	}
 	
-	public static byte[] convertImageToFormat(BufferedImage image, String format) throws IOException {
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ImageIO.write(image, format, baos);
-        return baos.toByteArray();
-    }
 }

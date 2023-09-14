@@ -34,7 +34,7 @@ public class Controller extends HttpServlet {
 		String context = request.getContextPath();
 		String command = uri.substring(context.length());
 		String site = null;
-
+		
 		Board board = new Board(); //게시판 query
 		Image img = new Image();
 		Ans ans = new Ans();
@@ -46,8 +46,6 @@ public class Controller extends HttpServlet {
 				break;
 				
 			case "/goBoard" : // 게시판
-//				site = board.goBoard(request, response);
-//				break;
 				String boardList = gson.toJson(board.goBoard(request, response));
 		        response.setContentType("application/json");
 		        response.setCharacterEncoding("UTF-8");
@@ -59,8 +57,8 @@ public class Controller extends HttpServlet {
 				break;
 		
 			case "/insertBoard" : //DB에 글 등록
-				board.insBoard(img.uploadTest(request),response); //이미지등록
-				img.delImg();
+				board.insBoard(img.fileUpload(request),response); //이미지등록
+//				img.delImg();
 				site = "boardPage";
 
 				response.setContentType("text/html;charset=UTF-8");
@@ -74,10 +72,8 @@ public class Controller extends HttpServlet {
 				break;
 				
 			case "/updateBoard" : //수정 DB에 올리기
-				MultipartRequest mul = img.uploadTest(request);
+				MultipartRequest mul = img.fileUpload(request);
 				board.updBoard(mul, response);
-				img.delImg();
-//				site = "/WEB-INF/Board/Board_List.jsp";
 				site = "BoardInfo?board_ID=" + mul.getParameter("board_ID") ;
 				response.setContentType("text/html;charset=UTF-8");
 		        PrintWriter out1 = response.getWriter();
@@ -95,10 +91,6 @@ public class Controller extends HttpServlet {
 				}
 				break;
 				
-			case "/downloadImg" : //이미지 다운로드
-				img.downloadImg(request, response);
-				return;
-				
 			case "/deleteBoard" : //글삭제
 //				site = board.deleteBoard(request, response);
 				String resList = gson.toJson(board.deleteBoard(request, response));
@@ -109,12 +101,12 @@ public class Controller extends HttpServlet {
 				
 			// 댓글
 			case "/insAns" : //댓글등록
-				ans.insAns(img.uploadTest(request), response);
-				img.delImg();
+				ans.insAns(img.fileUpload(request), response);
+//				img.delImg();
 				return;
 			
 			case "/listAns" : //댓글 가져오기 (로딩, 댓글등록)
-		        String resList2 = gson.toJson(ans.listAns(img.uploadTest(request), response));
+		        String resList2 = gson.toJson(ans.listAns(img.fileUpload(request), response));
 		        response.setContentType("application/json");
 		        response.setCharacterEncoding("UTF-8");
 		        response.getWriter().write(resList2);
@@ -125,7 +117,7 @@ public class Controller extends HttpServlet {
 				return;
 			
 			case "/updAns" : //댓글 수정
-				ans.updAns(img.uploadTest(request), response);
+				ans.updAns(img.fileUpload(request), response);
 				return;
  		}
 		

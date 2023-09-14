@@ -6,8 +6,8 @@ public class BoardQVO {
 	private String comment_ID;
 	private String title;
 	private String contents;
-	private String file_ViewName; //출력용
-	private byte[] file_Name; //저장용
+	private String file_Name; //출력용
+	private String file_Extension; //파일 확장자
 	private String ins_Date_Time;
 	private String upd_Date_Time;
 	private String Del_Date_Time;
@@ -16,11 +16,11 @@ public class BoardQVO {
 	private int answerCnt;
 	
 	
-	public String getFile_ViewName() {
-		return file_ViewName;
+	public String getFile_Name() {
+		return file_Name;
 	}
-	public void setFile_ViewName(String file_ViewName) {
-		this.file_ViewName = file_ViewName;
+	public void setFile_Name(String file_Name) {
+		this.file_Name = file_Name;
 	}
 	public int getAnswerCnt() {
 		return answerCnt;
@@ -52,11 +52,11 @@ public class BoardQVO {
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
-	public byte[] getFile_Name() {
-		return file_Name;
+	public String getFile_Extension() {
+		return file_Extension;
 	}
-	public void setFile_Name(byte[] file_Name) {
-		this.file_Name = file_Name;
+	public void setFile_Extension(String file_Extension) {
+		this.file_Extension = file_Extension;
 	}
 	public String getIns_Date_Time() {
 		return ins_Date_Time;
