@@ -1,0 +1,373 @@
+@charset "UTF-8";
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+section.notice {
+  padding: 80px 0;
+}
+
+.page-title {
+  margin-bottom: 60px;
+}
+.page-title h3 {
+  font-size: 28px;
+  color: #333333;
+  font-weight: 400;
+  text-align: center;
+}
+
+#board-search .search-window {
+  padding: 15px 0;
+  background-color: #f9f7f9;
+}
+#board-search .search-window .search-wrap {
+  position: relative;
+/*   padding-right: 124px; */
+  margin: 0 auto;
+  width: 80%;
+  max-width: 564px;
+}
+#board-search .search-window .search-wrap input {
+  height: 40px;
+  width: 100%;
+  font-size: 14px;
+  padding: 7px 14px;
+  border: 1px solid #ccc;
+}
+#board-search .search-window .search-wrap input:focus {
+  border-color: #333;
+  outline: 0;
+  border-width: 1px;
+}
+#board-search .search-window .search-wrap .btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 108px;
+  padding: 0;
+  font-size: 16px;
+}
+
+.board-table {
+  font-size: 13px;
+  width: 100%;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+.board-table a {
+  color: #333;
+  display: inline-block;
+  line-height: 1.4;
+  word-break: break-all;
+  vertical-align: middle;
+}
+.board-table a:hover {
+  text-decoration: underline;
+}
+.board-table th {
+  text-align: center;
+}
+
+.board-table .th-num {
+  width: 10%;
+  text-align: center;
+}
+
+.board-table .th-date {
+  width: 20%;
+}
+
+.board-table .th-title {
+  width: 30%;
+}
+
+.board-table .th-writer {
+  width: 30%;
+}
+
+
+.board-table th, .board-table td {
+  padding: 14px 0;
+}
+
+.board-table tbody td {
+  border-top: 1px solid #e7e7e7;
+  text-align: center;
+}
+
+.board-table tbody th {
+  padding-left: 28px;
+  padding-right: 14px;
+  border-top: 1px solid #e7e7e7;
+  text-align: left;
+}
+
+.board-table tbody th p{
+  display: none;
+}
+
+.btn-dark {
+  background: #555;
+  color: #fff;
+}
+
+.btn-dark:hover, .btn-dark:focus {
+  background: #373737;
+  border-color: #373737;
+  color: #fff;
+}
+
+.btn-dark {
+  background: #555;
+  color: #fff;
+}
+
+.btn-dark:hover, .btn-dark:focus {
+  background: #373737;
+  border-color: #373737;
+  color: #fff;
+}
+
+/* reset */
+
+* {
+  list-style: none;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.container {
+  width: 1100px;
+  margin: 0 auto;
+}
+.blind {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  margin: -1px;
+  width: 1px;
+  height: 1px;
+}
+
+
+section.board{
+	padding: 30px 10%;
+}
+
+/* 검색박스 searchBox */
+.searchBox{
+ 	display:flex;
+	justify-content: center;
+	margin: 0 auto; 
+	margin-bottom: 40px; 
+}
+
+.searchBox > *{
+	display:inline-block;
+}
+
+.searchBox > *:focus{
+	outline: none; /* 포커스 아웃라인 제거 */
+  	box-shadow: none;
+}
+
+.searchBox > #condition {
+	width: 120px;
+	border: none;
+	border-radius : 0;
+	border-top: 3px solid #153b21;
+	border-left: 3px solid #153b21;
+	border-bottom: 3px solid #153b21;
+	height: 50px;
+}
+
+.searchBox > #searchKeyword {
+	width: 350px;
+	border: none;
+	border-radius : 0;
+	border-top: 3px solid #153b21;
+	border-bottom: 3px solid #153b21;
+	text-align:left;
+	height: 50px;
+	padding-left: 20px;
+}
+
+.searchBox > #condition:focus {
+	box-shadow: none;
+}
+
+.searchBox > #searchKeyword:focus {
+	box-shadow: none;
+}
+
+/*검색버튼*/
+.searchBox > button {
+	background-color: #153b21;
+	border-radius : 0;
+	color: white;
+	height: 50px;
+	border: 5px solid #153b21;
+}
+
+.searchBox > button:hover {
+	/* 원래 호버 설정 */
+/* 	background-color: white;
+	color: black;
+	font-weight:bold; */
+	
+	background-color: #153b21;
+	border-radius : 0;
+	color: white;
+	height: 50px;
+	border: 5px solid #153b21;
+}
+
+/* boardList 테이블 */
+div#boardListDiv{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+	/* margin: 0 6%; */
+	min-height: 570px;
+}
+
+.board-table{/* 테이블 */
+	text-align: right;
+}
+
+.board-table  tr.boardList:hover{
+	background-color:#eeeeee85;
+	/* font-weight: bold; */
+	cursor: pointer;
+}
+
+/* 글등록 버튼*/
+.insBtnBox{
+	text-align:right;
+}
+
+button.BoardMenuBtn{
+	background-color: #153b21!important;
+	border-radius : 0;
+	color: white!important;
+	line-height: 0px;
+	margin-top: 5px;
+	font-size: 0.9rem;
+}
+
+/* section board*/
+section.board{
+	min-width: 880px;
+}
+
+/* 페이징 버튼 */
+#pageBtns{
+	margin-top: 30px;
+}
+
+.pBtn{
+	margin: 0 3px;
+	font-size : 0.85rem;
+	color: black;
+	font-weight: bold;
+}
+
+a.pBtn:hover{
+	color: black;
+	text-decoration: none;
+}
+
+button.pNumBtn{
+	border: 1px solid #307305;
+	background-color: #307305;
+	color: white;
+	width:25px;
+	height:25px;
+}
+
+button.pNumBtn:first-of-typ{
+	margin-left:8px;
+}
+
+button.pNumBtn:last-of-type{
+	margin-right:8px;
+}
+
+button.selectedNumBtn{
+	border: 2px solid #307305;
+	background-color: white;
+	color: #307305;
+	width:25px;
+	height:25px;
+}
+
+
+/* 답변완료, 대기 */
+.ansStatusOK{
+	background: linear-gradient(to left, #467293 5%, #0c4371 95%);
+    padding: 8px;
+    color: white;
+    border-radius: 10px;
+}
+
+.ansStatusNO{
+	background: #878787;
+    padding: 8px;
+    color: white;
+    border-radius: 10px;
+}
+
+/* 글쓰기 글자 */
+.insBtnSpan{
+	display: none;	
+}
+
+/* 게시글 수 */
+#boardCnt{
+	text-align: left;
+	font-size: 0.85rem;
+	font-weight: bold;
+}
+
+
+/* 반응형 ========================================================= */
+@media (max-width: 880px){
+section.board{/*전체 board 패딩 삭제)*/
+    padding: 0;
+    min-width: 375px;
+    margin: 0 auto;
+    width: 97%;
+}
+	
+.insBtnSpan{
+	display: inline-block;	
+}
+	
+th.th-num,
+td.td-num{
+	display:none;
+}
+
+.searchBox{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+#AnsInsBox textarea {
+    padding-right: 50px;
+}
+
+#insBoardBox div {
+    border-right: 10px solid #0d771b;
+}
+}
