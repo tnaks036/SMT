@@ -58,7 +58,6 @@ public class Controller extends HttpServlet {
 		
 			case "/insertBoard" : //DB에 글 등록
 				board.insBoard(img.fileUpload(request),response); //이미지등록
-//				img.delImg();
 				site = "boardPage";
 
 				response.setContentType("text/html;charset=UTF-8");
@@ -92,7 +91,6 @@ public class Controller extends HttpServlet {
 				break;
 				
 			case "/deleteBoard" : //글삭제
-//				site = board.deleteBoard(request, response);
 				String resList = gson.toJson(board.deleteBoard(request, response));
 		        response.setContentType("application/json");
 		        response.setCharacterEncoding("UTF-8");
