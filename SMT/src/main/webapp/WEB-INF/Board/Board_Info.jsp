@@ -233,7 +233,7 @@ function getAnsList() {
 					if(file_Name != null){
 						comment_html += "<div style='text-align:right;'><a class='downloadLink' href='${pageContext.request.contextPath}/file/" + file_Name + "' download>[첨부파일]</a></div>"; 
 
-						if (file_Extension === 'jpg' || file_Extension === 'png' || file_Extension === 'jpeg') {
+						if (file_Extension === 'jpg' || file_Extension === 'png' || file_Extension === 'jpge') {
 							comment_html += "<img src='${pageContext.request.contextPath}/file/" + file_Name + "' alt='" + file_Name + "'> <br>";
 						}
 					}

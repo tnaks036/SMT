@@ -253,7 +253,6 @@ public class Board {
 	
 	public Map<String, String> deleteBoard(HttpServletRequest request, HttpServletResponse response) {
 		board_ID = request.getParameter("board_ID");
-		System.out.println(board_ID);
 		query = " UPDATE CS_Ques"
 				+ " SET Del_Yn = 'Y' "
 				+ " , Del_Date_Time = GetDate() "
