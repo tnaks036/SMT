@@ -14,7 +14,7 @@
 <title>메인</title>
 </head>
 <body>
-
+<div>
 <aside>
 	<div id="mainMenu">
 		<img src="img/smt로고.png">
@@ -32,9 +32,9 @@
 				</div>
 			</li>
 			<li>
-				<div class="menuset">
+				<div class="menuset" onClick="goBoard()">
 					<div>
-						<a href="#"><span>지원 서비스</span></a>
+						<a href="boardPage"><span>지원 서비스</span></a>
 					</div>
 					<div>
 						<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
@@ -95,10 +95,21 @@
 	<div class="circleBox"></div>
 	
 	<span class="mainBox" id="mainSolution"><b>업종별 특화 솔루션</b></span>
-	<div class="mainBox">
-		SMTVISION이 함께 합니다.
-	</div>
+	<span class="mainBox" id="smtText">
+		SMTVISION 
+	</span>
+	<span class="mainBox" id="smtSubText">이 함께 합니다.</span>
 </section>
+</div>
+<footer>
+	<p>
+		(08501) 서울특별시 금천구 가산디지털1로 225 1411,1412호(가산동,에이스가산포휴)
+	</p>
+	<p>
+		© (주)에스엠티비전 All rights reserved.
+		Designed & Programmed by WHOISDREAM
+	</p>
+</footer>
 <script src="js/board.js"></script>	
 </body>
 </html>
