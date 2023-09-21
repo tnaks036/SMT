@@ -7,6 +7,7 @@
 		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
 		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\SMT\Desktop\게시판 프로젝트\0920\SMT"/>
 			<item value="C:\Users\SMT\Desktop\게시판 프로젝트\0915\SMT"/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
