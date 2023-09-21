@@ -1,0 +1,253 @@
+@charset "UTF-8";
+
+/* 게시글 부분 */
+#boardInfoBox{
+	border: 1px solid black;
+	padding: 30px 50px;
+}
+
+#boardInfoBox >*{
+	text-align: left;
+}
+
+/*타이틀 INPUT*/
+#boardTitle{
+	border: none;
+	padding: 0;
+	margin-bottom: 10px;
+	text-align: left;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 0;
+}
+
+#insDateTime{
+	border: none;
+	padding: 0;
+	margin-bottom: 10px;
+	text-align: left;
+    font-size: 0.9rem;
+    border-radius: 0;
+}
+
+/* 이미지 다운로드 a 태그 */
+#boardInfoBox > div {
+	font-size: 0.85rem;
+	text-align: right;
+	margin-bottom: 20px;
+}
+
+/* 이미지 */
+#boardInfoBox > img {
+	max-width: 880px;
+	height: auto;
+}
+
+/* 글 내용 contents*/
+#boardInfoBox > p{
+    margin-top: 20px;
+}
+
+
+/* 글 수정, 삭제 버튼 */
+#boardModiDelBtnBox{
+	margin-bottom: 10px;
+	text-align: left;	
+}
+
+.BoardMenuBtn{
+	background-color: black;
+	border-radius : 0;
+	color: white;
+	line-height: 0px;
+	margin-top: 5px;
+}
+
+/*=================================*/
+
+/* 댓글 등록 부분 */
+#AnsInsBox{
+	border-top: 1px solid black;
+	border-left: 1px solid black;
+	border-bottom: 1px solid black;
+}
+
+#AnsInsBox *{
+	text-align: left;
+}
+
+#AnsInsBox input, 
+#AnsInsBox textarea{
+	/* input 부분 구분선 안보이게 */
+	border: none;
+	box-shadow: none;
+	padding-left: 50px;
+	padding-top: 25px;
+}
+
+/* 댓글 글씨 */
+p#AnsInsBoxTitle {
+	margin-top: 50px;
+    font-size: 13pt;
+    font-weight: 600;
+    text-align: left;
+}
+
+/* 댓글 text area 사이즈 조절 */
+#AnsInsBox textarea{
+	padding-top: 10px;
+}
+
+/* 파일 lable */
+#fileLabelBox{
+	text-align: left;
+	padding-left: 50px;
+	padding-bottom: 15px;
+}
+
+#fileLabelBox > label:hover{
+	cursor: pointer;
+}
+
+/* 댓글 등록 버튼 */
+#AnsInsBox .col-2{
+	/* 버튼 감싸는 div */
+	padding-left: 0;
+}
+
+#insAnsBtn{
+	display:block;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+    background-color: #153b21;
+    color: white;
+    border-radius: 0;
+    font-size: 13pt;
+    font-weight: 400;
+     transition: font-size 0.5s, font-weight 0.5s; 
+}
+
+#insAnsBtn:hover{
+	font-size: 1.1rem;
+	font-weight: bold;
+}
+
+#AnsInsBox hr{
+	transform: translateX(5%);
+}
+
+
+/* 작성된 댓글 나오는 곳 */
+.comment_Box{
+	margin-top: 40px;
+	padding: 0 30px;
+}
+
+.comment_Box *{
+	text-align: left;
+}
+
+.comment_Box >div{
+	text-align: center;
+}
+
+.comment_Box img#ansImge{
+	display:block;
+	margin: 0 auto;
+}
+
+.comment_Box input,
+.comment_Box textarea{
+	border: none;
+	box-shadow: none!important;
+}
+
+div.ansWriterDate{
+	/* 댓글 작성자, 날짜 */
+	display: flex;
+	border-bottom: 1px solid #21252978;
+    margin-bottom: 10px;
+}
+
+div.ansWriterDate > .answerID{
+	font-weight: bold;
+	font-size: 1.05rem;
+}
+
+div.ansWriterDate > .insDateTime{
+	text-align: right;
+	font-size: 0.85rem;
+}
+
+
+div.ansUpdfileLabelBox{
+	/* 댓글 수정, 삭제 버튼 있는 div */
+	text-align:left;
+	padding-left: 12px;
+}
+
+div.ansUpdDelBtn,
+div.ansUpdDBCancle{
+	text-align:left;
+}
+
+div.ansUpdDelBtn >button:hover,
+div.ansUpdDBCancle >button:hover{
+	text-decoration : underline;
+}
+
+/* 다운로드 a태그 */
+.downloadLink{
+	font-size: 0.85rem;
+	color: black;
+	cursor: pointer;
+}
+
+.downloadLink:hover{
+	text-decoration: underline;
+}
+
+
+/* 상태 표시 */
+#quesInfoStatus{
+	margin:0!important;
+	text-align: left!important;
+	padding-bottom: 10px;
+}
+
+/* 이전글/다음글 */
+#preNextBoard_Box{
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	margin-top: 50px;
+}
+
+#preNextBoard_Box *{
+	text-align: left;
+	margin: 0;
+	padding: 0;
+}
+
+#preNextBoard_Box >p{
+	padding: 20px;
+}
+
+#preNextBoard_Box >p >span{
+    margin-right: 30px;
+}
+
+/* 반응형 */
+@media (max-width: 880px){
+#boardInfoBox {
+    padding: 30px 25px;
+}
+
+#AnsInsBox {
+    border: 1px solid black;
+}
+
+#AnsInsBox hr {
+    width: 85%;
+}
+}
