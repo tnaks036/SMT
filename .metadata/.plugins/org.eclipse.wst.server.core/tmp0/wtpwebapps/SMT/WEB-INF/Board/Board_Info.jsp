@@ -124,7 +124,6 @@ function previewImage(event) {
 	
 function deleteBoard(boardID){
 	var board_ID = boardID;
-	console.log(board_ID);
 	if(confirm("해당 문의를 삭제하시겠습니까?")){
 		$.ajax({
 		    type: "POST",
@@ -285,7 +284,6 @@ function getAnsList() {
 					    $ansUpdDelBtn.hide();
 					    $textarea.prop("readonly", false);
 					    $textarea.focus();
-					    /* $saveBtn.show();*/
 					    $updDelBtn.show(); 
 					    $ansUpdfileLabelBox.show();
 					    $ansUpdDBCancle.show();
@@ -299,8 +297,6 @@ function getAnsList() {
 					    var $ansUpdDBCancle = $container.find(".ansUpdDBCancle");//수정, 취소버튼 있는 div
 					    
 					    $textarea.prop("readonly", true);
-					    /* $saveBtn.hide();
-					    $(this).hide(); */
 					    $ansUpdfileLabelBox.hide();
 					    $ansUpdDBCancle.hide();
 					    $ansUpdDelBtn.show();

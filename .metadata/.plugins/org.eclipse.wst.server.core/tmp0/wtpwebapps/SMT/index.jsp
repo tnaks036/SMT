@@ -107,7 +107,6 @@
 	</p>
 	<p>
 		© (주)에스엠티비전 All rights reserved.
-		Designed & Programmed by WHOISDREAM
 	</p>
 </footer>
 <script src="js/board.js"></script>	
