@@ -1,0 +1,249 @@
+@charset "UTF-8";
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@200&family=Oswald:wght@200;300;400&display=swap');
+  
+body{
+ 	background-image : linear-gradient(to right, rgb(3 6 89), rgba(255, 255, 255, 0)),url("../img/testBack.jpg");
+ 	background-repeat: no-repeat;
+	background-size: cover; 
+	width:100%;
+	height: 100vh;
+	/* overflow-x:hidden; */
+	color: white;
+	padding: 50px;
+	display:flex;
+	min-width: 1400px;
+}
+
+aside{
+	float: left;
+}
+
+aside > #mainMenu > img{
+	/*로고*/
+	padding-left:40px;
+}
+
+ul{
+	list-style: none;
+	margin-top: 40px;
+}
+
+ul a{
+	color: inherit;
+}
+
+ul li{
+	animation-name: menuHover;
+	padding:20px;
+    width: 300px;
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+ 	background-image: linear-gradient(to right, white 50%, transparent 50%);
+    background-position: 100% 0;
+    background-size: 200% 100%;
+    transition: background-position 0.3s;   
+}
+
+ul li:hover a{
+	color: rgb(3 6 89);
+	font-weight: bold;
+	text-decoration: none;
+}
+
+ul li:hover{
+	background-position: 0 0;
+	cursor: pointer;
+	color: rgb(3 6 89);
+	font-weight: bold;
+}
+
+ul li:last-child{
+	border-bottom: 1px solid white;
+}
+
+ul li span{
+	height: 70px;
+    display: block;
+    line-height: 70px;
+}
+
+.menuset{
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*  메인컨텐츠 */
+#mainContent{
+	flex-grow: 1;
+	padding-left: 180px;
+}
+.Title{
+	/* -webkit-text-stroke: 2px black;
+	text-stroke: 2px black; */
+    font-size: 64pt;
+/*     color: #dff6ff; */
+    color: #fff3ce;
+    font-weight: bold;
+    /* background: linear-gradient(90deg, #8d9fc7,850px, rgba(255,255,255,0)); */
+    position: relative;
+    z-index: 0;
+    mix-blend-mode: difference;
+    font-family: 'Oswald', sans-serif; 
+}
+
+@keyframes titleCircle {
+  from {
+    transform: translate(0,-100px);
+  }
+  to {
+    transform: translate(400px,-100px);
+  }
+}
+
+.circleBox{
+    position: absolute;
+    top: 16%;
+    -webkit-transform: translateY(-50%);
+    transform: translate(-35%,-50%);
+    z-index: -1;
+    content: '';
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    background: #b9f5ff;
+    animation: titleCircle 2s forwards
+}
+
+
+/* 로고 이후 */
+.mainBox{
+	margin-top: 50px;
+}
+
+#mainSolution{
+    font-size: 54pt;
+    min-width: 11px;
+    position: relative;
+    top: 50px;
+    color: transparent;
+}
+
+#mainSolution::before {
+  content: "업종별 특화 솔루션";
+  position: absolute;
+  top: -3px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: white;
+  overflow: hidden;
+  font-weight:bold;
+  border-right: 1px solid white;
+  animation: typing 2s steps(13) forwards;
+}
+
+@keyframes typing{
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 103%;
+    /* border: none; */
+  }
+}
+
+
+span#smtText,
+span#smtSubText{
+	display: block;
+	font-weight: bold;
+}
+
+#smtText{
+	letter-spacing: 1px;
+	font-family: 'Oswald', sans-serif; 
+	opacity: 0;
+    position: absolute;
+    bottom: 35%;
+    font-size: 52pt;
+    animation: smtTextDrop 0.7s forwards;
+    animation-delay: 2.3s;
+}
+
+@keyframes smtTextDrop{
+	0%{
+		opacity: 0;
+		transform: translate(0,-130px);
+	}
+	100%{
+		opacity: 1;
+		transform: translate(0,30px);
+	}	
+}
+
+#smtText::before{
+    position: absolute;
+    content: "";
+    /* width: 415px; */
+    transform: translateX(-40px);
+    display: block;
+    background: linear-gradient(to right,#78f9ff,#FFE94D,white);
+    height: 3px;
+    /* top: 16px; */
+    top: 0px;
+    animation: dropTopbar 1s forwards;
+    animation-delay: 2.6s;
+}
+
+#smtText::after{
+	position: absolute;
+    content: "";
+    /* width: 415px; */
+    transform: translateX(40px);
+    display: block;
+    background: linear-gradient(to left,#78f9ff,#FFE94D,white);
+    height: 3px;
+/*     top: 93px; */
+    top: 110px;
+    animation: dropUnderbar 1s forwards;
+    animation-delay: 2.8s;
+}
+
+@keyframes dropUnderbar{
+	0%{
+		width: 0;
+	}	
+	100%{
+		width: 100%;
+	}
+}
+
+@keyframes dropTopbar{
+	0%{
+		width: 0;
+	}	
+	100%{
+		width: 100%;
+	}
+}
+
+#smtSubText{
+	opacity: 0;
+    position: absolute;
+    bottom: 33%;
+    left: 920px;
+    font-size: 36pt;
+    transform: translateX(-10%);
+	animation : smtSubText 1s forwards;
+	animation-delay: 3.5s;
+}
+
+
+@keyframes smtSubText{
+	to {
+	    opacity: 1;
+	    transform: translateX(0);
+	  }
+}

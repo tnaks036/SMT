@@ -1,0 +1,80 @@
+
+9월 18, 2023 09:05:16.534 NEW SESSION
+9월 18, 2023 09:05:16.534 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 18, 2023 09:29:03.755 [16576:19908:0918/092903.755:ERROR:interface_endpoint_client.cc(702)] Message 0 rejected by interface blink.mojom.WidgetHost
+9월 18, 2023 14:19:44.278 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+
+9월 20, 2023 09:00:12.811 NEW SESSION
+9월 20, 2023 09:00:12.811 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 20, 2023 10:53:29.316 [10968:7744:0920/105329.315:ERROR:interface_endpoint_client.cc(702)] Message 1 rejected by interface blink.mojom.WidgetHost
+9월 20, 2023 11:32:54.446 [10968:7744:0920/113254.445:ERROR:CONSOLE(1)] "One popover is already visible", source: devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js (1)
+9월 20, 2023 11:53:57.650 [10968:7744:0920/115357.649:ERROR:CONSOLE(1)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/core/sdk/sdk.js (1)
+9월 20, 2023 11:53:57.651 [10968:7744:0920/115357.649:ERROR:CONSOLE(0)] "TypeError: Cannot read properties of null (reading 'resourceURL')", source:  (0)
+9월 20, 2023 12:29:48.793 [10968:7744:0920/122948.793:ERROR:CONSOLE(1)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/core/sdk/sdk.js (1)
+9월 20, 2023 12:29:48.794 [10968:7744:0920/122948.793:ERROR:CONSOLE(0)] "TypeError: Cannot read properties of null (reading 'resourceURL')", source:  (0)
+9월 20, 2023 12:37:16.485 [10968:7744:0920/123716.484:ERROR:CONSOLE(1)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/core/sdk/sdk.js (1)
+9월 20, 2023 12:37:16.485 [10968:7744:0920/123716.484:ERROR:CONSOLE(0)] "TypeError: Cannot read properties of null (reading 'resourceURL')", source:  (0)
+9월 20, 2023 12:42:13.341 [10968:7744:0920/124213.341:ERROR:CONSOLE(1)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/core/sdk/sdk.js (1)
+9월 20, 2023 12:42:13.342 [10968:7744:0920/124213.341:ERROR:CONSOLE(0)] "TypeError: Cannot read properties of null (reading 'resourceURL')", source:  (0)
+9월 20, 2023 12:42:15.368 [10968:7744:0920/124215.368:ERROR:CONSOLE(1)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/core/sdk/sdk.js (1)
+9월 20, 2023 12:42:15.369 [10968:7744:0920/124215.368:ERROR:CONSOLE(0)] "TypeError: Cannot read properties of null (reading 'resourceURL')", source:  (0)
+9월 20, 2023 14:21:52.568 [10968:7744:0920/142152.568:ERROR:interface_endpoint_client.cc(702)] Message 0 rejected by interface blink.mojom.WidgetHost
+9월 20, 2023 14:28:57.869 [10968:7744:0920/142857.868:ERROR:interface_endpoint_client.cc(702)] Message 0 rejected by interface blink.mojom.WidgetHost
+9월 20, 2023 14:36:54.480 [10968:7744:0920/143654.480:ERROR:interface_endpoint_client.cc(702)] Message 0 rejected by interface blink.mojom.WidgetHost
+9월 20, 2023 14:43:47.564 [10968:7744:0920/144347.563:ERROR:CONSOLE(1)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/core/sdk/sdk.js (1)
+9월 20, 2023 14:43:47.565 [10968:7744:0920/144347.563:ERROR:CONSOLE(0)] "TypeError: Cannot read properties of null (reading 'resourceURL')", source:  (0)
+9월 20, 2023 17:35:45.190 [10968:7744:0920/173545.190:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:35:45.305 [10968:7744:0920/173545.304:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:35:45.415 [10968:7744:0920/173545.414:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:35:45.514 [10968:7744:0920/173545.514:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:35:45.621 [10968:7744:0920/173545.621:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:35:45.729 [10968:7744:0920/173545.729:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:35:45.839 [10968:7744:0920/173545.839:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:35:45.945 [10968:7744:0920/173545.945:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:35:46.74 [10968:7744:0920/173546.073:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:35:46.475 [10968:7744:0920/173546.474:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:35:46.708 [10968:7744:0920/173546.707:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:35:46.816 [10968:7744:0920/173546.815:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:35:47.44 [10968:7744:0920/173547.043:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:35:47.341 [10968:7744:0920/173547.341:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:35:47.444 [10968:7744:0920/173547.443:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:35:47.600 [10968:7744:0920/173547.599:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:35:47.711 [10968:7744:0920/173547.710:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:35:47.868 [10968:7744:0920/173547.868:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:35:47.981 [10968:7744:0920/173547.980:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:35:48.119 [10968:7744:0920/173548.118:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:35:48.677 [10968:7744:0920/173548.676:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:35:48.779 [10968:7744:0920/173548.778:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:35:48.911 [10968:7744:0920/173548.910:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:35:50.117 [10968:7744:0920/173550.117:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:35:50.242 [10968:7744:0920/173550.242:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:35:50.823 [10968:7744:0920/173550.823:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:35:50.935 [10968:7744:0920/173550.934:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:35:55.401 [10968:7744:0920/173555.401:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:35:55.507 [10968:7744:0920/173555.507:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:35:55.631 [10968:7744:0920/173555.630:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:35:58.906 [10968:7744:0920/173558.905:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:35:59.23 [10968:7744:0920/173559.022:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:35:59.490 [10968:7744:0920/173559.489:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:35:59.607 [10968:7744:0920/173559.606:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:35:59.725 [10968:7744:0920/173559.724:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:36:00.473 [10968:7744:0920/173600.472:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:36:00.594 [10968:7744:0920/173600.594:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:36:01.143 [10968:7744:0920/173601.142:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:36:01.273 [10968:7744:0920/173601.272:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:36:02.992 [10968:7744:0920/173602.991:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:36:03.103 [10968:7744:0920/173603.102:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:36:03.210 [10968:7744:0920/173603.209:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:36:06.774 [10968:7744:0920/173606.773:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:36:06.882 [10968:7744:0920/173606.881:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:36:07.632 [10968:7744:0920/173607.631:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:36:07.751 [10968:7744:0920/173607.749:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:36:08.97 [10968:7744:0920/173608.097:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:36:08.197 [10968:7744:0920/173608.197:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:36:08.322 [10968:7744:0920/173608.322:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:36:08.983 [10968:7744:0920/173608.983:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:36:09.114 [10968:7744:0920/173609.114:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+9월 20, 2023 17:36:09.799 [10968:7744:0920/173609.799:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 1.412 s for first_image_paint 1.397 s
+
+9월 21, 2023 09:26:00.54 NEW SESSION
+9월 21, 2023 09:26:00.54 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
