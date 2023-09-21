@@ -54,3 +54,6 @@
 0:0:0:0:0:0:0:1 - - [21/Sep/2023:09:56:34 +0900] "POST /SMT/updateCurrentPageCounter HTTP/1.1" 200 -
 0:0:0:0:0:0:0:1 - - [21/Sep/2023:09:56:36 +0900] "POST /SMT/goBoard HTTP/1.1" 200 1681
 0:0:0:0:0:0:0:1 - - [21/Sep/2023:09:56:36 +0900] "GET /SMT/images/checked.jpg HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [21/Sep/2023:10:00:24 +0900] "GET /SMT/boardPage HTTP/1.1" 200 17851
+0:0:0:0:0:0:0:1 - - [21/Sep/2023:10:00:24 +0900] "POST /SMT/goBoard HTTP/1.1" 200 1681
+0:0:0:0:0:0:0:1 - - [21/Sep/2023:10:00:24 +0900] "GET /SMT/images/checked.jpg HTTP/1.1" 304 -
